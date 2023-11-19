@@ -1,14 +1,301 @@
 <html>
-  <head>
-    <title>randrise.com</title>
-    <script>
-function g_onload() {
-  //location = 'http://dinhtt.randrise.com';
-  location = 'https://www.kaggle.com/datasets/dinhttrandrise/randrise';
+<head>
+	<title>Dinh Thoai Tran @ randrise.com</title>
+	<script src="./jquery.js"></script>
+	<meta name="keywords" content="machine learning engineer, remote" />
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link rel="icon" href="./favicon.png" />
+	<style>
+body {
+  margin: 0px;
+  padding: 0px;
 }
-    </script>
-  </head>
-  <body onload="g_onload()">
-    <p>Loading randrise.com ...</p>
-  </body>
+#yo-page {
+  white-space: pre-wrap;
+  font-family: monospace;
+  width: 640px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px auto;
+  background:url('./division.png') repeat;
+  border: solid 1px gainsboro; 
+  border-radius: 10px;
+}
+#yo-text {
+  white-space: pre-wrap;
+  font-family: monospace;
+  width: 640px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px auto;
+  background:url('./division.png') repeat;
+  border: solid 1px gainsboro; 
+  border-radius: 10px;
+}
+#yo-image, #yo-youtube {
+  white-space: pre-wrap;
+  font-family: monospace;
+  width: 640px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px auto;
+  overflow: scroll;
+  background:url('./division.png') repeat;
+  border: solid 1px gainsboro; 
+  border-radius: 10px;
+}
+#yo-toolbar {
+  width: 640px;
+  margin: 10px auto;
+  text-align: center;
+  font-family: nonospace;
+  font-size: 12px;
+}
+#yo-footer {
+  width: 640px;
+  margin: 10px auto;
+  text-align: center;
+  font-family: nonospace;
+  font-size: 12px;
+  color: grey;
+}
+#yo-footer a {
+  color: grey;
+}
+#yo-query-asker {
+  border: solid 1px gainsboro; 
+  border-radius: 10px;
+  padding: 5px;
+  width: 400px;
+  height: 300px;
+  margin: 80px auto;  
+  background:url('./division.png') repeat;
+  border: none;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);  
+}
+#yo-query-asker .yo-query {
+  width: 400px;
+  height: 250px;
+  border: solid 1px green; 
+  border-radius: 10px 10px 0px 0px;  
+}
+#yo-query-asker .yo-button {
+	width: 100px;
+	border: solid 1px green;
+	border-left: solid 5px green;
+	background: white;
+	border-radius: 5px 0px 5px 0px;
+	cursor: pointer;
+	cursor: hand;
+}
+#yo-page .yo-active-item {
+	color: #d9b80b !important;
+	font-weight: bold !important;
+}
+#yo-page .yo-paper-item {
+	color: black !important;
+}
+#yo-page .yo-paper-item img {
+    -webkit-filter:  grayscale(100%) brightness(60%) contrast(10000000%);
+    opacity: .3;
+}
+#yo-page .yo-active-item img {
+    -webkit-filter:  grayscale(100%) brightness(60%) contrast(10000000%);
+    opacity: .3;
+}
+.yo-paper-image img {
+    -webkit-filter:  grayscale(100%) brightness(60%) contrast(10000000%) !important;
+    opacity: .3 !important;
+}
+	</style>
+	<script>
+var PAGE_WIDTH = 640;	
+var PAGE_HEIGHT = 0;
+$(document).ready(function() {
+  PAGE_HEIGHT = $(window).height() - 35;
+  $(window).resize(function() {
+	resize();
+  });
+  resize();
+});
+
+function resize() {
+  var sw = $(window).width();
+  if (sw >= PAGE_WIDTH) {
+	return;
+  }
+  $('#yo-page').width(sw - 5);
+  $('#yo-text').width(sw - 5);
+  $('#yo-image').width(sw - 5);
+  $('#yo-youtube').width(sw - 5);
+  $('#yo-toolbar').width(sw - 5);
+  $('#yo-footer').width(sw - 5);
+  $('#yo-query-asker').width(sw - 20);
+  $('#yo-query-asker .yo-query').width(sw - 20);
+}
+
+	</script>
+</head>
+<body>
+  <div id="yo-toolbar">
+    <div style="position: absolute">
+	  <div style="position: absolute; top: 2px; left: -5px">
+	    <img src="./icon.png" style="width: 36px; height: 36px; border: none; border-radius: 50%;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); cursor: pointer; cursor: hand;" />
+	  </div>
+	  <div style="position: absolute; top: -2px; left: 25px">
+	     <img id="yo-loading" src="./loading.gif" style="display: none;width: 48px; height: 48px;" />
+	  </div>
+	</div>
+	<div class="bar">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#" onclick="location='index.html';">Resume</a> | <a href="#" onclick="location='projects.html';">Projects</a> &nbsp; <span style="color: pink; font-size: 12px;">&hearts;</span> &nbsp; <a href="https://github.com/dinhtt-randrise" target="_blank">GitHub</a> | <a target="_blank" href="https://kaggle.com/dinhtt-randrise">Kaggle</a>
+	</div>
+  </div>
+  <div style="height: 1px; left:0px; right:0px; position: fixed; top: 0px;">
+  <div id="yo-query-asker" style="display: none">
+	<div><textarea class="yo-query"></textarea></div>
+	<input type="hidden" class="yo-url" />
+	<div style="text-align:center; margin-top: 10px"><button class="yo-button" onclick="doQuery()">OK</button>&nbsp;<button class="yo-button" onclick="cancelQuery()">Cancel</button></div>
+  </div>
+  </div>
+  <div id="yo-page"><div class="yo-entry" style="white-space: pre-wrap">
+     _ _       _     _   _   
+    | (_)     | |   | | | |  
+  __| |_ _ __ | |__ | |_| |_ 
+ / _` | | '_ \| '_ \| __| __|
+| (_| | | | | | | | | |_| |_ 
+ \__,_|_|_| |_|_| |_|\__|\__| @ randrise.com
+--------------------------------------------
+     Dinh Thoai Tran @ randrise.com
+--------------------------------------------
+
+
+============================================
+           CONTACT INFORMATION
+  ---------------------------------------
+
++ Email: dinhtt@randrise.com
++ Tel: +84-28-4458-1450
++ E-CV: http://dinhtt.randrise.com
+
+
+============================================
+            LOOKING FOR ...
+  ---------------------------------------
+
++ Machine Learning Engineer position
+
++ Remote or nearby Ho Chi Minh city, Vietnam
+
+
+============================================
+              EXPERIENCE
+  ---------------------------------------
+
+
+==> Professional Competitor @ Kaggle  %  Nov 2019 - Now <==
+    ---------------------------------------
+
++ Compete in selected competitions in order to horn skills
+in machine learning
+
+
+==> Beginner Competitor @ Kaggle  %  June 2019 - Nov 2023 <==
+    ---------------------------------------
+
++ Study and compete in many competitions about optimization, prediction,
+object detection, etc.
+
+
+==> Java Developer @ Sense Infosys  %  Apr 2018 - May 2019 <==
+    ---------------------------------------
+
++ Develop & maintain APIs such as ‘Entity Extractor’, ‘Sentiment Analysis’, 
+‘Topic Modelling’, ‘Entity Resolution’, ‘Tagging’, etc.
+
++ Develop K-Admin which manage configuration, provide admin level tasks 
+for Klaver 2 ( https://klaver.online )
+
+
+==> Senior Salesforce Developer @ Transcosmos Technologic Arts  %  Jun 2017 - Jan 2018 <==
+    ---------------------------------------
+
++ Configured and gained experience in Service Cloud (LiveAgent, Call Center,
+Voice Chatbot, Email & Chatter Channels, etc.), Sales Cloud,
+Community Cloud, Pardot
+
+
+==> Consultant @ Capgemini Vietnam  %  Oct 2016 - Jun 2017 <==
+    ---------------------------------------
+
++ Hold “Salesforce Certified Platform App Builder”, “
+Salesforce Certified Platform Developer I”,
+“Salesforce Certified Administrator” certifications.
+
+
+==> Java Developer @ Athena Pros  %  May 2010 - Jul 2016 <==
+    ---------------------------------------
+
++ Developed EscapeNotes, a complex tool for migrating data from Lotus Notes
+to Salesforce and Azure Search. Gained experience in java programming,
+migrating problems, search engine building, Lotus Notes API, Salesforce API
+and Azure Search API.
+
++ Developed CommitKeeper, a Salesforce application for project management.
+
+
+==> Programmer @ Data Design Vietnam  %  Jul 2007 - Sep 2008 <==
+    ---------------------------------------
+
++ Developed export function of CoFieu, a financial web tool with
+portfolio management, stock pricing.
+
++ Developed a module which transfer data from SharePoint site to
+Excel file (Cosmo Engineering project)
+
++ Developed an Outlook addin which check email suffix before
+sending (Kimado - MailGO)
+
++ Gained experience in programming C# with test driven development (TDD)
+
+
+==> Programmer @ Asia Pacific Solutions  %  Jan 2005 - Apr 2007 <==
+    ---------------------------------------
+
++ Developed search and import function of SPACE-Doc,
+a Japanese document management system
+
++ Fixed bugs in main form (a most complex one of application) of SPACE-Doc
+
++ Work onsite in Osaka, Japan and customize SPACE-Doc for Sougo Sharyou customer
+
++ Gained experience in programming in VB.NET for complex application
+
+
+============================================
+               EDUCATION
+  ---------------------------------------
+
+
+==> Diploma of IT (Software Development) @ Victoria University  %  2001 - 2004 <==
+    ---------------------------------------
+
+
+</div> 
+  </div>
+  <div id="yo-text" style="display: none;"></div>
+  <div id="yo-image" style="display: none;"></div>
+  <div id="yo-youtube" style="display: none;">
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe id="yo-youtube-frame" src='' frameborder='0' allowfullscreen></iframe></div>
+  </div>
+  <div id="yo-footer">Made with <span style="color: pink; font-size: 16px;">&hearts;</span> by <a target="_blank" href="http://dinhtt.randrise.com">dinhtt @ randrise.com</a></div>
+  
+</body>
 </html>
