@@ -1,5 +1,7 @@
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <link rel="icon" href="http://randrise.com/favicon.png" />
     <title>Học 100 câu thi quốc tịch Mỹ</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
@@ -8,7 +10,17 @@ var keys = ["003", "005", "041"];
 var index = 0;
 
 function g_onload() {
+    $(window).resize(function() {
+        g_resize(); 
+    });
+    g_resize();
     g_show(index);
+}
+
+function g_resize() {
+    var w = $(window).width();
+    $('.yo-space').width(w - 22);
+    $('.yo-bar').width(w - 22);
 }
 
 function g_show(index) {
@@ -80,6 +92,10 @@ function playSound(url) {
 }
     </script>
     <style>
+body {
+    margin: 0px;
+    padding: 0px;
+}
 .yo-button {
     border: solid 1px green;
     border-radius: 10px 0px 10px 0px;
@@ -93,8 +109,14 @@ function playSound(url) {
     margin: 5px;
 }
 
+.yo-bar {
+    margin: 5px 0px 5px 0px; 
+    float: left;
+}
+
 .yo-space {
-    margin: 5px 0px 0px 5px;
+    float: left;
+    margin: 5px 0px 5px 5px;
     border: solid 1px green;
     border-radius: 5px;
     padding: 10px;
@@ -108,6 +130,7 @@ function playSound(url) {
         <span class="yo-button" style="width: 75px" onclick="g_go_random()">Random</span>
         <span class="yo-button" style="width: 75px" onclick="g_show_front()">Front</span>
         <span class="yo-button" style="width: 75px" onclick="g_show_back()">Back</span>
+        <span class="yo-button" style="width: 85px" onclick="location='http://randrise.com'">randrise.com</span>
     </div>
     <div id="yo-front" class="yo-space">
         <div id="yo-tq" style="padding-bottom: 10px; border-bottom: solid 1px gainsboro;"></div>
