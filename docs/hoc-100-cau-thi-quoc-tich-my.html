@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>Học 100 câu thi quốc tịch Mỹ</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+var data = {"003": {"C": "003", "TQ": "The idea of self-government is in the first three words of the Constitution. What are these words?", "TQM": "The idea of self-government is in _the first three words_ of the _Constitution_. What are these words?", "TA": "We the people", "TAF": "Those words are \"We the people\".", "Q": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/003/question.mp3", "K0": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/003/keyword_00.mp3", "K1": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/003/keyword_01.mp3", "K2": "_", "A": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/003/answer.mp3", "AF": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/003/answer_full.mp3", "Z": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/003/all.zip"}, "005": {"C": "005", "TQ": "What do we call the first ten amendments to the Constitution?", "TQM": "What do we call _the first ten amendments_ to the _Constitution_?", "TA": "The Bill of Rights", "TAF": "It is \"The Bill of Rights\".", "Q": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/005/question.mp3", "K0": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/005/keyword_00.mp3", "K1": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/005/keyword_01.mp3", "K2": "_", "A": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/005/answer.mp3", "AF": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/005/answer_full.mp3", "Z": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/005/all.zip"}, "041": {"C": "041", "TQ": "Under our Constitution, some powers belong to the federal government. What is one power of the federal government?", "TQM": "Under our _Constitution_, some powers belong to the _federal government_. What is _one power_ of the federal government?", "TA": "to print money", "TAF": "It is \"to print money\".", "Q": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/041/question.mp3", "K0": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/041/keyword_00.mp3", "K1": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/041/keyword_01.mp3", "K2": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/041/keyword_02.mp3", "A": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/041/answer.mp3", "AF": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/041/answer_full.mp3", "Z": "https://github.com/dinhtt-randrise/thi-quoc-tich-my/raw/main/mp3/041/all.zip"}};
+var keys = ["003", "005", "041"];
+var index = 0;
+
+function g_onload() {
+    g_show(index);
+}
+
+function g_show(index) {
+    rw = data[keys[index]];
+    $('#yo-tq').text(rw['TQM']);
+    $('#yo-ta').text(rw['TA']);
+    $('#yo-taf').text(rw['TAF']);
+    if (rw['K0'] == '_') {
+        $('#yo-k0').hide();
+    } else {
+        $('#yo-k0').show();        
+    }
+    if (rw['K1'] == '_') {
+        $('#yo-k1').hide();
+    } else {
+        $('#yo-k1').show();        
+    }
+    if (rw['K2'] == '_') {
+        $('#yo-k2').hide();
+    } else {
+        $('#yo-k2').show();        
+    }
+    g_show_front();
+}
+
+function g_show_front() {
+    $('#yo-front').show();
+    $('#yo-back').hide();
+}
+
+function g_show_back() {
+    $('#yo-front').hide();
+    $('#yo-back').show();
+}
+
+function g_go_next() {
+    index += 1;
+    if (index >= keys.length) {
+        index = keys.length - 1;
+    }
+    g_show(index);
+}
+
+function g_go_previous() {
+    index -= 1;
+    if (index >= 0) {
+        index = 0;
+    }
+    g_show(index);
+}
+
+function g_go_random() {
+    index = randomIntFromInterval(0, keys.length - 1);
+    g_show(index);    
+}
+
+function play_mp3(k) {
+    var url = data[keys[index]][k];
+    playSound(url);
+}
+
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function playSound(url) {
+    var a = new Audio(url);
+    a.play();
+}
+    </script>
+    <style>
+.yo-button {
+    border: solid 1px green;
+    border-radius: 10px 0px 10px 0px;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    cursor: hand;
+    padding: 2px 5px 2px 5px;
+    margin: 5px;
+}
+
+.yo-space {
+    margin: 5px 0px 0px 5px;
+    border: solid 1px green;
+    border-radius: 5px;
+    padding: 10px;
+}
+    </style>
+</head>
+<body onload="g_onload()">
+    <div class="yo-bar">
+        <span class="yo-button" style="width: 75px" onclick="g_go_previous()">Previous</span>
+        <span class="yo-button" style="width: 75px" onclick="g_go_next()">Next</span>
+        <span class="yo-button" style="width: 75px" onclick="g_go_random()">Random</span>
+        <span class="yo-button" style="width: 75px" onclick="g_show_front()">Front</span>
+        <span class="yo-button" style="width: 75px" onclick="g_show_back()">Back</span>
+    </div>
+    <div id="yo-front" class="yo-space">
+        <div id="yo-tq" style="padding-bottom: 10px; border-bottom: solid 1px gainsboro;"></div>
+        <div style="padding-top: 10px">
+            <span class="yo-button" style="width: 10px" onclick="play_mp3('Q')">Q</span>
+            <span id="yo-k0" class="yo-button" style="width: 15px" onclick="play_mp3('K0')">K0</span>
+            <span id="yo-k1" class="yo-button" style="width: 15px" onclick="play_mp3('K1')">K1</span>
+            <span id="yo-k2" class="yo-button" style="width: 15px" onclick="play_mp3('K2')">K2</span>
+        </div>
+    </div>
+    <div id="yo-back" class="yo-space">
+        <div id="yo-ta" style="padding-bottom: 10px; border-bottom: solid 1px gainsboro;"></div>
+        <div id="yo-taf" style="padding-top: 10px; padding-bottom: 10px; border-bottom: solid 1px gainsboro;"></div>
+        <div style="padding-top: 10px">
+            <span class="yo-button" style="width: 10px" onclick="play_mp3('A')">A</span>
+            <span class="yo-button" style="width: 15px" onclick="play_mp3('AF')">AF</span>
+        </div>
+    </div>
+</body>
+</html>
